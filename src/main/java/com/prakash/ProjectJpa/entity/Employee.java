@@ -2,13 +2,16 @@ package com.prakash.ProjectJpa.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Employee {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "employeeSeq")
+	@SequenceGenerator(name="employeeSeq", sequenceName = "employee_seq", initialValue = 1, allocationSize = 1)
 	private Integer id;
 	
 	private String name;

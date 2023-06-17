@@ -1,5 +1,8 @@
 package com.prakash.ProjectJpa;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -10,22 +13,29 @@ import com.prakash.ProjectJpa.service.ServiceImpl;
 @SpringBootApplication
 public class ProjectJpaApplication {
 
+	@Autowired
+	private ServiceImpl serviceImpl;
+
 	public static void main(String[] args) {
-		ConfigurableApplicationContext config = SpringApplication.run(ProjectJpaApplication.class, args);
 		
-		ServiceImpl service = config.getBean(ServiceImpl.class);
-		
+		SpringApplication.run(ProjectJpaApplication.class, args);
+
+	}
+
+	@PostConstruct
+	public void addEmployee() {
+
 		try {
 			Employee employee = new Employee();
-			
+
 			employee.setName("Prakash");
 			employee.setEmailId("prakash@gmail.com");
-			service.addEmployee(employee);
-			
+			serviceImpl.addEmployee(employee);
+
 		} catch(Exception e) {
 			System.out.println(e);
 		}
-		
+
 	}
 
 }
