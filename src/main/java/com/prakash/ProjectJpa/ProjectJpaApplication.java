@@ -17,7 +17,7 @@ public class ProjectJpaApplication {
 	private ServiceImpl serviceImpl;
 
 	public static void main(String[] args) {
-		
+
 		SpringApplication.run(ProjectJpaApplication.class, args);
 
 	}

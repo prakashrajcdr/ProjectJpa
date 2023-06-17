@@ -11,7 +11,7 @@ public class ServiceImpl {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
-	
+
 	public void addEmployee(Employee employee) {
 		employeeRepository.save(employee);
 	}

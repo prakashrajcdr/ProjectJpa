@@ -13,9 +13,9 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "employeeSeq")
 	@SequenceGenerator(name="employeeSeq", sequenceName = "employee_seq", initialValue = 1, allocationSize = 1)
 	private Integer id;
-	
+
 	private String name;
-	
+
 	private String emailId;
 
 	public Integer getId() {
@@ -41,6 +41,6 @@ public class Employee {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	
-	
+
+
 }
